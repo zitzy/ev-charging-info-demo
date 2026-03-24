@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Nuxt build outputs
+.nuxt/
+.output/
+dist/
+
+# Nitro data/storage
+.data/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Claude Code local files
+.claude/
+.agents/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Extensions
+.history/
