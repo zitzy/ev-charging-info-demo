@@ -52,6 +52,64 @@ Each provider has a different method. All scrapers run inside a Nitro scheduled 
 
 ---
 
+## Auth wall analysis — what prices are hidden behind provider logins
+
+Verified against live provider pages on 2026-03-25.
+
+### ejoin — partial auth wall
+
+| Price field | Visibility |
+|-------------|-----------|
+| Home-sk AC/DC | **Public** — cennik page |
+| Monthly fee, RFID card fee | **Public** — cennik page |
+| Domestic roaming (partner stations) | **App only** — footnote: *"Platná tarifa na partnerských nabíjacích staniciach je zverejnená v aplikácii ejoin GO"* |
+| International roaming | **App only** |
+
+UFC is not separately listed; the scraper assigns UFC = DC price.
+
+### Ionity — fully public
+
+All prices are publicly visible on the subscription page without login. The current code incorrectly marks Ionity international roaming as `"cena len v aplikácii"` — this is wrong. International prices per country are shown publicly via the country selector on the same page.
+
+| Plan | Price | Visibility |
+|------|-------|-----------|
+| Power 365 (annual) | 0.39 €/kWh, 119.99 €/year | **Public** |
+| Motion 365 (annual) | 0.48 €/kWh, 59.99 €/year | **Public** |
+| Go (app, no subscription) | from 0.65 €/kWh | **Public** |
+| Direct (no app, no registration) | from 0.68 €/kWh | **Public** |
+
+**Scraper breakage warning**: The Ionity page has been redesigned. The old scraper targets `.combi-pricing_cli.w-dyn-item` Webflow CMS attributes (`[power-kwh-price="parent"]`, `[motion-kwh-price="parent"]`) which no longer appear in the page. The scraper is likely returning nulls or throwing. Plan names also changed (was Motion/Power monthly, now 365 annual variants shown by default with a monthly toggle).
+
+### GreenWay — partial auth wall
+
+| Price field | Visibility |
+|-------------|-----------|
+| Home-sk AC/DC/UFC per-kWh | **Public** — PDF pricelist (direct URL, no auth) |
+| Monthly fees, RFID card fee, free-kWh | **Public** — PDF |
+| Domestic roaming | **App only** |
+| International roaming | **App only** |
+
+`greenway.sk/cennik/` redirects directly to the public PDF — no login needed.
+
+### ZSE Drive — mostly public, international roaming hardcoded wrong
+
+| Price field | Visibility |
+|-------------|-----------|
+| Home-sk AC/DC/UFC per-kWh | **Public** — PDF pricelist |
+| Monthly fees, RFID card fee, free-kWh | **Public** — PDF |
+| Domestic roaming | **Public** — PDF (hardcoded in scraper as 0.49/0.59/0.69 €/kWh) |
+| International roaming | **Public** — homepage shows *"od 0.59 €/kWh AC a 0.79 €/kWh DC a UFC"* |
+
+**Data error**: The scraper hardcodes international roaming as EUR/h values (9/25/35 €/h for AC/DC/UFC). The live ZSE Drive homepage quotes these as EUR/kWh starting from 0.59/0.79. The scraper values are outdated and in the wrong unit.
+
+**New PDF incoming**: As of 2026-03-25 the downloads page lists a new pricelist valid from 2026-05-01. The existing scraper's `__NEXT_DATA__` discovery should pick this up automatically once it goes live.
+
+### Tesla — fully private
+
+No public pricing API or pricing page exists. All Supercharger prices are visible only inside the Tesla app (requires Tesla account). Maintained manually in seed data.
+
+---
+
 ## Chargeprice API — the alternative
 
 **Website**: chargeprice.net | **Docs**: chargeprice.github.io/chargeprice-api-docs

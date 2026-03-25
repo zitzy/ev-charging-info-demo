@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2024-09-18T00:00:00.000Z",
+  "lastUpdated": "2026-03-25T00:00:00.000Z",
   "dataSource": "seed",
   "providers": [
     {
@@ -22,9 +22,9 @@
             "UFC": { "amount": 0.69, "unit": "EUR/kWh" }
           },
           "international-roaming": {
-            "AC": { "amount": 9.00, "unit": "EUR/h" },
-            "DC": { "amount": 25.00, "unit": "EUR/h" },
-            "UFC": { "amount": 35.00, "unit": "EUR/h" }
+            "AC": { "amount": 0.59, "unit": "EUR/kWh", "note": "od" },
+            "DC": { "amount": 0.79, "unit": "EUR/kWh", "note": "od" },
+            "UFC": { "amount": 0.79, "unit": "EUR/kWh", "note": "od" }
           }
         },
         {
@@ -44,9 +44,9 @@
             "UFC": { "amount": 0.69, "unit": "EUR/kWh" }
           },
           "international-roaming": {
-            "AC": { "amount": 9.00, "unit": "EUR/h" },
-            "DC": { "amount": 25.00, "unit": "EUR/h" },
-            "UFC": { "amount": 35.00, "unit": "EUR/h" }
+            "AC": { "amount": 0.59, "unit": "EUR/kWh", "note": "od" },
+            "DC": { "amount": 0.79, "unit": "EUR/kWh", "note": "od" },
+            "UFC": { "amount": 0.79, "unit": "EUR/kWh", "note": "od" }
           }
         },
         {
@@ -66,9 +66,9 @@
             "UFC": { "amount": 0.69, "unit": "EUR/kWh" }
           },
           "international-roaming": {
-            "AC": { "amount": 9.00, "unit": "EUR/h" },
-            "DC": { "amount": 25.00, "unit": "EUR/h" },
-            "UFC": { "amount": 35.00, "unit": "EUR/h" }
+            "AC": { "amount": 0.59, "unit": "EUR/kWh", "note": "od" },
+            "DC": { "amount": 0.79, "unit": "EUR/kWh", "note": "od" },
+            "UFC": { "amount": 0.79, "unit": "EUR/kWh", "note": "od" }
           }
         },
         {
@@ -88,9 +88,9 @@
             "UFC": { "amount": 0.69, "unit": "EUR/kWh" }
           },
           "international-roaming": {
-            "AC": { "amount": 9.00, "unit": "EUR/h" },
-            "DC": { "amount": 25.00, "unit": "EUR/h" },
-            "UFC": { "amount": 35.00, "unit": "EUR/h" }
+            "AC": { "amount": 0.59, "unit": "EUR/kWh", "note": "od" },
+            "DC": { "amount": 0.79, "unit": "EUR/kWh", "note": "od" },
+            "UFC": { "amount": 0.79, "unit": "EUR/kWh", "note": "od" }
           }
         }
       ]
@@ -194,13 +194,13 @@
         {
           "planId": "default",
           "monthly-fee": { "amount": 0, "unit": "EUR" },
-          "rfid-card": { "amount": 6.00, "unit": "EUR" },
+          "rfid-card": { "amount": 7.00, "unit": "EUR" },
           "free-kwh": { "amount": null, "unit": "kWh" },
           "free-kwh-recalculated": { "amount": null, "unit": "EUR/kWh" },
           "home-sk": {
-            "AC": { "amount": 0.29, "unit": "EUR/kWh" },
-            "DC": { "amount": 0.39, "unit": "EUR/kWh" },
-            "UFC": { "amount": 0.39, "unit": "EUR/kWh" }
+            "AC": { "amount": 0.28, "unit": "EUR/kWh" },
+            "DC": { "amount": 0.38, "unit": "EUR/kWh" },
+            "UFC": { "amount": 0.38, "unit": "EUR/kWh" }
           },
           "domestic-roaming": {
             "AC": { "amount": null, "unit": "EUR/kWh", "note": "cena len v aplikácii" },
@@ -227,7 +227,7 @@
           "home-sk": {
             "AC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
             "DC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
-            "UFC": { "amount": 0.49, "unit": "EUR/kWh" }
+            "UFC": { "amount": 0.48, "unit": "EUR/kWh" }
           },
           "domestic-roaming": {
             "AC": { "amount": null, "unit": "EUR/kWh", "note": "len Ionity stanice" },
@@ -237,7 +237,7 @@
           "international-roaming": {
             "AC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
             "DC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
-            "UFC": { "amount": null, "unit": "EUR/kWh", "note": "cena len v aplikácii" }
+            "UFC": { "amount": 0.48, "unit": "EUR/kWh", "note": "cena podľa krajiny" }
           }
         },
         {
@@ -259,7 +259,51 @@
           "international-roaming": {
             "AC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
             "DC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
-            "UFC": { "amount": null, "unit": "EUR/kWh", "note": "cena len v aplikácii" }
+            "UFC": { "amount": 0.39, "unit": "EUR/kWh", "note": "cena podľa krajiny" }
+          }
+        },
+        {
+          "planId": "go",
+          "monthly-fee": { "amount": 0, "unit": "EUR" },
+          "rfid-card": { "amount": null, "unit": "EUR", "note": "nie je k dispozícii" },
+          "free-kwh": { "amount": null, "unit": "kWh" },
+          "free-kwh-recalculated": { "amount": null, "unit": "EUR/kWh" },
+          "home-sk": {
+            "AC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
+            "DC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
+            "UFC": { "amount": 0.65, "unit": "EUR/kWh", "note": "od (cez aplikáciu)" }
+          },
+          "domestic-roaming": {
+            "AC": { "amount": null, "unit": "EUR/kWh", "note": "len Ionity stanice" },
+            "DC": { "amount": null, "unit": "EUR/kWh", "note": "len Ionity stanice" },
+            "UFC": { "amount": null, "unit": "EUR/kWh", "note": "len Ionity stanice" }
+          },
+          "international-roaming": {
+            "AC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
+            "DC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
+            "UFC": { "amount": null, "unit": "EUR/kWh", "note": "cena podľa krajiny" }
+          }
+        },
+        {
+          "planId": "direct",
+          "monthly-fee": { "amount": 0, "unit": "EUR" },
+          "rfid-card": { "amount": null, "unit": "EUR", "note": "nie je k dispozícii" },
+          "free-kwh": { "amount": null, "unit": "kWh" },
+          "free-kwh-recalculated": { "amount": null, "unit": "EUR/kWh" },
+          "home-sk": {
+            "AC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
+            "DC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
+            "UFC": { "amount": 0.68, "unit": "EUR/kWh", "note": "od (bez registrácie)" }
+          },
+          "domestic-roaming": {
+            "AC": { "amount": null, "unit": "EUR/kWh", "note": "len Ionity stanice" },
+            "DC": { "amount": null, "unit": "EUR/kWh", "note": "len Ionity stanice" },
+            "UFC": { "amount": null, "unit": "EUR/kWh", "note": "len Ionity stanice" }
+          },
+          "international-roaming": {
+            "AC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
+            "DC": { "amount": null, "unit": "EUR/kWh", "note": "len UFC" },
+            "UFC": { "amount": null, "unit": "EUR/kWh", "note": "cena podľa krajiny" }
           }
         }
       ]
