@@ -4,19 +4,19 @@ A responsive web application for comparing EV charging prices across major Slova
 
 ## Overview
 
-Pricing data from five charging providers is scraped daily and presented in four interactive visualization formats — giving users multiple ways to compare costs across charging types (AC, DC, UFC), subscription plans, and usage scenarios.
+Pricing data from five charging providers is presented in four interactive visualization formats — giving users multiple ways to compare costs across charging types (AC, DC, UFC), subscription plans, and usage scenarios.
 
 **Supported providers:**
-- ZSE Drive
-- GreenWay
-- ejoin
-- Ionity
-- Tesla Supercharger
+- ZSE Drive (scraped daily)
+- GreenWay (scraped daily)
+- ejoin (scraped daily)
+- Ionity (scraped daily)
+- Tesla Supercharger (manually maintained)
 
 ## Features
 
 - **4 comparison views** — table, cards, category-based, and scenario ranker
-- **Automatic daily updates** — prices scraped every day at 6 AM UTC
+- **Automatic daily updates** — 4 providers scraped every day at 6 AM UTC; Tesla pricing is manually maintained
 - **Multi-plan support** — compares all available subscription tiers per provider
 - **Full pricing breakdown** — monthly fees, RFID card costs, per-kWh rates, free kWh allowances, domestic & international roaming
 - **Responsive design** — works on mobile and desktop, with dark mode support

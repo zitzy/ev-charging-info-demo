@@ -25,7 +25,7 @@ Each provider has a different method. All scrapers run inside a Nitro scheduled 
 - **Tech**: Webflow CMS — all country data server-rendered as Collection Items
 - **Method**: `$fetch` → `cheerio` → find `.combi-pricing_cli.w-dyn-item` where country = "Slovensko"
 - **Key insight**: All country prices are embedded in the initial HTML via custom attributes (`[power-kwh-price="parent"]`, `[motion-kwh-price="parent"]`, etc.). No JS execution needed.
-- **Plans extracted**: Motion (kWh + monthly), Power (kWh + monthly), Go (ad-hoc), Direct (no subscription)
+- **Plans extracted**: Motion (kWh + monthly), Power (kWh + monthly) — Go (ad-hoc) and Direct (no subscription) exist on the page but are not currently extracted
 - **Reliability**: Medium — Webflow CMS structure is stable, but attribute names could change on redesign
 - **Change risk**: Medium — Webflow redesigns can change attribute names
 
@@ -46,6 +46,7 @@ Each provider has a different method. All scrapers run inside a Nitro scheduled 
   3. Construct URL: `https://zsedrive.sk/api/web/v1/files{filePath}`
   4. Download PDF → `unpdf` → regex
 - **Gotcha**: Title uses Slovak diacritics (`Cenník`, not `Cennik`) — must normalize with `String.normalize('NFD')` before filtering
+- **Note**: The PDF includes day/night rate pairs (e.g. `0.39 €/0.24 €`). Only day rates are currently extracted (positions [1], [3], [5] in each plan's price sequence); night rates are ignored
 - **Reliability**: Medium — `__NEXT_DATA__` is stable for Next.js, but key names could change
 - **Change risk**: Medium-High — site redesign or Next.js migration would break discovery
 
