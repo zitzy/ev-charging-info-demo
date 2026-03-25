@@ -25,7 +25,7 @@ Each provider has a different method. All scrapers run inside a Nitro scheduled 
 - **Tech**: Webflow CMS — all country data server-rendered as Collection Items
 - **Method**: `$fetch` → `cheerio` → find `.combi-pricing_cli.w-dyn-item` where country = "Slovensko"
 - **Key insight**: All country prices are embedded in the initial HTML via custom attributes (`[power-kwh-price="parent"]`, `[motion-kwh-price="parent"]`, etc.). No JS execution needed.
-- **Plans extracted**: Motion (kWh + monthly), Power (kWh + monthly) — Go (ad-hoc) and Direct (no subscription) exist on the page but are not currently extracted
+- **Plans extracted**: Motion (kWh + monthly), Power (kWh + monthly), Go (kWh, app-based), Direct (kWh, no registration)
 - **Reliability**: Medium — Webflow CMS structure is stable, but attribute names could change on redesign
 - **Change risk**: Medium — Webflow redesigns can change attribute names
 
@@ -78,7 +78,7 @@ All prices are publicly visible on the subscription page without login. The curr
 | Go (app, no subscription) | from 0.65 €/kWh | **Public** |
 | Direct (no app, no registration) | from 0.68 €/kWh | **Public** |
 
-**Scraper breakage warning**: The Ionity page has been redesigned. The old scraper targets `.combi-pricing_cli.w-dyn-item` Webflow CMS attributes (`[power-kwh-price="parent"]`, `[motion-kwh-price="parent"]`) which no longer appear in the page. The scraper is likely returning nulls or throwing. Plan names also changed (was Motion/Power monthly, now 365 annual variants shown by default with a monthly toggle).
+The Ionity page UI was redesigned (new plan names: Power 365, Motion 365, Go, Direct) but the underlying Webflow CMS data layer is unchanged — `.combi-pricing_cli.w-dyn-item` items with `[fs-cmsfilter-field="country-2"]` and price attributes (`[power-kwh-price="parent"]` etc.) still exist in the HTML. The scraper's core logic is intact. Two new plan attributes were added: `[go-kwh-price="parent"]` and `[direct-kwh-price="parent"]` — the scraper has been updated to extract these.
 
 ### GreenWay — partial auth wall
 
